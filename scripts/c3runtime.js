@@ -4334,7 +4334,7 @@ self.C3_ExpressionFuncs = [
 		() => -281474976711679,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0("mod");
+			return () => f0("stage");
 		}
 ];
 
