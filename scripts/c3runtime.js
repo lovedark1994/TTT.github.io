@@ -3958,11 +3958,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Spritefont2,
 		C3.Plugins.AdvancedRandom,
 		C3.Plugins.Browser,
-		C3.Plugins.System.Cnds.OnLayoutStart,
-		C3.Plugins.System.Cnds.Compare,
-		C3.Plugins.Browser.Exps.QueryParam,
-		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.System.Cnds.IsGroupActive,
+		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.Sprite.Acts.SetPos,
 		C3.Plugins.Sprite.Acts.SetZElevation,
 		C3.Plugins.System.Acts.SetGroupActive,
@@ -3999,6 +3996,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.System.Cnds.TriggerOnce,
 		C3.Plugins.Spritefont2.Acts.SetVisible,
+		C3.Plugins.Browser.Exps.QueryParam,
 		C3.Plugins.System.Acts.SubVar,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.System.Acts.RestartLayout,
@@ -4008,7 +4006,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetDefaultColor,
 		C3.Plugins.Spritefont2.Acts.SetDefaultColor,
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
-		C3.Plugins.System.Cnds.Else
+		C3.Plugins.System.Cnds.Else,
+		C3.Plugins.System.Cnds.Compare,
+		C3.Plugins.System.Acts.GoToLayout
 	];
 };
 self.C3_JsPropNameTable = [
@@ -4169,11 +4169,6 @@ function or(l, r)
 }
 
 self.C3_ExpressionFuncs = [
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0("mood");
-		},
-		() => 2,
 		() => "Setup",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -4292,6 +4287,7 @@ self.C3_ExpressionFuncs = [
 			return () => (v0.GetValue()).toString();
 		},
 		() => "計時器",
+		() => 2,
 		() => 3,
 		() => 5,
 		() => 6,
@@ -4335,7 +4331,11 @@ self.C3_ExpressionFuncs = [
 		},
 		() => -281492157629439,
 		() => "Jump",
-		() => -281474976711679
+		() => -281474976711679,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0("mod");
+		}
 ];
 
 
