@@ -4000,6 +4000,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.SubVar,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.System.Acts.RestartLayout,
+		C3.Plugins.Shape3D.Cnds.CompareInstanceVar,
+		C3.Plugins.Shape3D.Acts.SetY,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
 		C3.Plugins.Sprite.Cnds.CompareY,
@@ -4022,7 +4024,7 @@ self.C3_JsPropNameTable = [
 	{Wall: 0},
 	{Door: 0},
 	{編號: 0},
-	{Sanctuary: 0},
+	{門: 0},
 	{Ground: 0},
 	{Ceiling: 0},
 	{CellBarsLeft: 0},
@@ -4068,6 +4070,10 @@ self.C3_JsPropNameTable = [
 	{ColorFrame: 0},
 	{活: 0},
 	{重製: 0},
+	{門1: 0},
+	{門2: 0},
+	{門3: 0},
+	{門4: 0},
 	{上去編號: 0}
 ];
 }
@@ -4177,6 +4183,7 @@ self.C3_ExpressionFuncs = [
 		() => 96,
 		() => "門",
 		() => 1,
+		() => 2,
 		() => "Camera",
 		() => -1,
 		p => {
@@ -4287,7 +4294,6 @@ self.C3_ExpressionFuncs = [
 			return () => (v0.GetValue()).toString();
 		},
 		() => "計時器",
-		() => 2,
 		() => 3,
 		() => 5,
 		() => 6,
@@ -4298,6 +4304,10 @@ self.C3_ExpressionFuncs = [
 			return () => f0("time");
 		},
 		() => "1",
+		() => 464,
+		() => 608,
+		() => 752,
+		() => 896,
 		() => "Background",
 		() => 0.25,
 		p => {
@@ -4321,14 +4331,9 @@ self.C3_ExpressionFuncs = [
 		() => "Fall",
 		() => 30,
 		() => -281481839011839,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0("max");
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0("min");
-		},
+		() => 50,
+		() => 20,
+		() => 10,
 		() => -281492157629439,
 		() => "Jump",
 		() => -281474976711679,
