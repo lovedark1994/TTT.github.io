@@ -4376,6 +4376,7 @@ self.C3_JsPropNameTable = [
 	{CenterX: 0},
 	{CenterY: 0},
 	{階段: 0},
+	{題目目數: 0},
 	{題目數: 0},
 	{CameraAngle: 0},
 	{HorizontalCameraDistance: 0},
@@ -4622,11 +4623,20 @@ self.C3_ExpressionFuncs = [
 			const f1 = p._GetNode(1).GetBoundMethod();
 			return () => (f0(f1())).toString();
 		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => f0(f1());
+		},
 		() => "計時器",
+		() => "C",
 		() => 3,
-		() => 5,
-		() => 6,
-		() => 7,
+		() => "D",
+		() => "E",
+		() => "F",
+		() => "A",
+		() => "B",
+		() => "G",
 		() => "0",
 		() => "1",
 		() => 464,
